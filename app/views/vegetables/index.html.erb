@@ -15,7 +15,7 @@
 <% @vegetables.each do |vegetable| %>
   <ul>
     <li>
-      <%= vegetable.vegetable_type %>, <%= vegetable.color %>
+      <%= link_to "#{vegetable.vegetable_type}", vegetable_path(vegetable) %>, <%= vegetable.color %>
     </li>
   </ul>
 <% end %>

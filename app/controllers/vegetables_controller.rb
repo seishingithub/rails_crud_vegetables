@@ -14,6 +14,21 @@ class VegetablesController < ApplicationController
     end
   end
 
+  def show
+    @vegetable = Vegetable.find(params[:id])
+  end
+
+  def edit
+    @vegetable = Vegetable.find(params[:id])
+  end
+
+  def update
+    @vegetable = Vegetable.find(params[:id])
+    @vegetable.update_attributes!(vegetable_params)
+
+    redirect_to vegetables_path
+  end
+
   private
   def vegetable_params
     params.require(:vegetable).permit(:vegetable_type, :color)

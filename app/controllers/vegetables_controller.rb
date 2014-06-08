@@ -29,6 +29,12 @@ class VegetablesController < ApplicationController
     redirect_to vegetables_path
   end
 
+  def destroy
+    @vegetable = Vegetable.find(params[:id]).delete
+
+    redirect_to vegetables_path
+  end
+
   private
   def vegetable_params
     params.require(:vegetable).permit(:vegetable_type, :color)

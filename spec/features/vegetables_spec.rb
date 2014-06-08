@@ -31,7 +31,19 @@ feature 'manage Vegetables' do
     expect(page).to have_content 'orange'
     expect(page).to have_no_content 'squash'
     expect(page).to have_no_content 'yellow'
+  end
 
-
+  scenario 'User delete vegetables' do
+    visit '/'
+    click_on 'Add Vegetable'
+    fill_in 'Vegetable type', with: 'squash'
+    fill_in 'Color', with: 'yellow'
+    click_on 'Create Vegetable'
+    click_on 'squash'
+    expect(page).to have_content 'squash'
+    expect(page).to have_content 'yellow'
+    click_on 'Delete vegetable'
+    expect(page).to have_no_content 'squash'
+    expect(page).to have_no_content 'yellow'
   end
 end
